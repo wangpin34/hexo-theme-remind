@@ -1,0 +1,29 @@
+-
+ function getYearsPosts() {
+   var t = new Date(time)
+   var posts = page.posts.toArray()
+   posts.filter(function(post) {
+     post.year = date(post.date, 'YYYY')
+     post.archiveDate = date(post.date, 'MM-DD')
+   })
+   var obj = posts.reduce((a, c) => {
+     if (!a[c.year]) {
+       a[c.year] = { year: c.year, posts: []}
+     }
+     a[c.year].posts.push(c)
+     return a
+   }, {})
+   return Object.values(obj)
+ }
+-
+p This are all the posts I have made
+ol.archive-years
+  each yearPosts in getYearsPosts()
+    li
+      header
+        h1= yearPosts.year
+        ol.posts(total=yearPosts.posts.length)
+          each post in yearPosts.posts
+            li
+              span= post.archiveDate
+              a(href=url_for(post.path))= post.title

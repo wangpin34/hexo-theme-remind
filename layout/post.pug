@@ -1,0 +1,10 @@
+article
+  header
+    h1
+      a(href=page.path)= page.title
+    if page.subtitle
+      h2 !{url_for(page.subtitle)}
+    div.metadata= 'created at: ' + date(page.date) + '. last updated at ' + date(page.updated, 'YYYY-MM-DD HH:mm')
+  main !{page.content}
+
+

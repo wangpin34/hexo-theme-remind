@@ -45,6 +45,8 @@ nav
     transition: font-weight 200ms ease-out
     &:hover, &:focus
       font-weight: bold
+    &.active
+      font-weight: bold
       color: accent-color
 
 section.body
@@ -82,18 +84,19 @@ ul.posts
     color: accent-color
   li
     list-style: none
-    font-size: 14px
     margin: 0 auto
+    padding: 20px 0
+
     header
-      padding: 2em 2em 1em
-      h1 
-        font-size: 32px
-        margin: 1em 0 0.5em
+      .title
+        margin: 0 
+        font-size: font-size-md
         a
           text-decoration: none
-      div.metadata
-        font-size: 12px
-        color: font-secondary-color
+    div.summary
+      font-size: font-size-sm
+      color: font-primary-color
+      font-weight: lighter
 
 // 归档文章
 ol.archive-years
@@ -104,13 +107,13 @@ ol.archive-years
       color: accent-color
   li
     h1
-      font-size: 18px
+      font-size: font-size-md
       border-left: 0.4em solid #2c3e50
       padding-left: 1em
       &:hover
         border-color: accent-color
     ol
-      font-size: 14px
+      font-size: font-size-xs
       text-indent: 2em
       li
         line-height: 2
@@ -143,18 +146,32 @@ article
 
   header
     border-bottom: 1px solid grey-color
-    padding: 2em 2em 1em;
+    padding: 2em 0 1em;
     h1
-      font-size: 32px
-      margin: 1em 0 0.5em
+      font-size: font-size-lg
+      margin: 1em 0 0.1em
       a
         text-decoration: none
+    h2
+      font-size: font-size-sm
     div.metadata
       font-size: 12px
       color: font-secondary-color
-
   main
-    padding: 2em
+    .summary
+      font-size: font-size-sm
+      color: font-primary-color
+      font-weight: 400
+      line-height: 2
+      padding-left: 24px
+      border-left: 8px solid #9b59b6
+      margin: 2em 0
+    p,div,section,td,dt
+      line-height: 1.8
+      margin: 0
+      padding: 1em 0
+    br
+      height: 14px
 
  
 

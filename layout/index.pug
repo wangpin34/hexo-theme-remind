@@ -1,7 +1,11 @@
 ul.posts
   each post in page.posts.toArray()
-    li
+    li.post
       header
-        h2
+        h2.title
           a(href=url_for(post.path))= post.title
-        div.metadata= 'created at: ' + date(post.date, 'MM-DD') + '. last updated at ' + date(post.updated, 'MM-DD HH:mm')
+      if post.summary
+        .summary= post.summary
+
+          
+          

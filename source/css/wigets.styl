@@ -1,0 +1,26 @@
+@import "variables.styl"
+
+color=#7f8c8d
+size=8px
+.dividing-line
+  position: relative
+  background-color: color
+  width: size
+  height: size
+  margin: 18px auto
+  padding: 0
+  border-radius: 100%
+  &:before, &:after
+    content: ''
+    display: inline-block
+    width: size
+    height: size
+    background-color: color
+    border-radius: 100%
+
+    position: absolute
+    top: 0
+  &:before
+    left: -24px
+  &:after
+    right: -24px

@@ -1,10 +1,14 @@
 article
   header
     h1
-      a(href=page.path)= page.title
-    if page.subtitle
-      h2 !{url_for(page.subtitle)}
-    div.metadata= 'created at: ' + date(page.date) + '. last updated at ' + date(page.updated, 'YYYY-MM-DD HH:mm')
-  main !{page.content}
+      a(href=url_for(page.path))= page.title
+    if page.sub_title
+      h2= page.sub_title
+    div.metadata= _p('post.created_at') + ' ' + date(page.date) + '   ' +  _p('post.last_updated_at') + ' ' + date(page.updated, 'YYYY-MM-DD HH:mm')
+  main
+    if page.summary
+      .summary= page.summary
+    .dividing-line
+    != page.content
 
 

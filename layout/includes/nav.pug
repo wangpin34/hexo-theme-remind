@@ -1,5 +1,5 @@
 nav
-  a(href='/') Home
-  a(href='/about') About
-  a(href='/projects') Projects
-  a(href='/archives') Posts
+  a(href='/' class=is_home() ? 'active' : '')= _p('nav.home')
+  a(href='/about' class=is_current('/about') ? 'active' : '')= _p('nav.about')
+  a(href='/projects' class=is_current('/projects') ? 'active' : '')= _p('nav.projects')
+  a(href='/archives' class=is_archive() ? 'active' : '')= _p('nav.archives')

@@ -1,0 +1,8 @@
+nav:
+  home: 首页
+  about: 关于
+  projects: 项目
+  archives: 归档
+post:
+  created_at: 创建于
+  last_updated_at: 最后一次更新于

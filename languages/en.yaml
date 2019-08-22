@@ -1,0 +1,8 @@
+nav:
+  home: Home
+  about: About
+  projects: Projects
+  archives: Archives
+post:
+  created_at: Created at
+  last_updated_at: Last updated at

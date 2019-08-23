@@ -1,0 +1,91 @@
+@import "variables.styl"
+// 头部导航
+nav
+  text-align: center
+  max-width: pc-width
+  margin: 0 auto
+  border-bottom: 1px solid #ECF0F1
+  font-size: 16px
+  line-height: 4
+  .top-bar
+    display: none
+  a,a.active, a.link, a.visited
+    color: font-primary-color
+    text-decoration: none
+    padding: 0 2em
+    font-weight: lighter
+    transition: font-weight 200ms ease-out
+    &:hover, &:focus
+      font-weight: bold
+    &.active
+      font-weight: bold
+      color: accent-color
+  
+  .mobile-menu
+    input 
+      display: none
+
+  @media all and (max-width: 750px)
+    &
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      max-width: 100%
+      height: 64px
+      z-index: 999
+      background-color: #fff
+    .top-bar
+      display: block
+    .items
+      display: none
+    .items.extended
+      display: flex
+      flex-direction: column
+      position: absolute
+      top: 64px
+      right: 4px
+      background-color: #fff
+      box-shadow: 0 1px 3px #95a5a6
+      a,a.active, a.link, a.visited
+        padding: 0 8px
+        &:hover, &:focus
+          font-weight: lighter
+        &.active
+          font-weight: lighter
+          color: unset
+      
+    .mobile-menu
+      display: block
+      &:before
+        content: ""
+        display: block
+        width: 32px
+        height: 32px
+        border: 0
+        outline: 0
+        background-color: #fff
+        background-repeat: no-repeat
+        background-position: center
+        background-size: 32px 32px
+        background-image: url(/assets/menu.svg)
+
+        position: fixed
+        top: 16px
+        right: 27px
+
+      input:checked ~ .items
+        display: flex
+        flex-direction: column
+        position: fixed
+        top: 64px
+        right: 4px
+        background-color: #fff
+        box-shadow: 0 1px 3px #95a5a6
+        a,a.active, a.link, a.visited
+          padding: 0 8px
+          &:hover, &:focus
+            font-weight: lighter
+          &.active
+            font-weight: lighter
+            color: unset

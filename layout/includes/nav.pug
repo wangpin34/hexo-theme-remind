@@ -1,5 +1,9 @@
 nav
-  a(href='/' class=is_home() ? 'active' : '')= _p('nav.home')
-  a(href='/about' class=is_current('/about') ? 'active' : '')= _p('nav.about')
-  a(href='/projects' class=is_current('/projects') ? 'active' : '')= _p('nav.projects')
-  a(href='/archives' class=is_archive() ? 'active' : '')= _p('nav.archives')
+  .top-bar= config.title
+  label.mobile-menu
+    input(type='checkbox')
+    .items
+      a(href='/' class=is_home() ? 'active' : '')= _p('nav.home')
+      a(href='/about' class=is_current('/about') ? 'active' : '')= _p('nav.about')
+      a(href='/projects' class=is_current('/projects') ? 'active' : '')= _p('nav.projects')
+      a(href='/archives' class=is_archive() ? 'active' : '')= _p('nav.archives')

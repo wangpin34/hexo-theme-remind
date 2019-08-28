@@ -1,5 +1,10 @@
 @import "variables.styl"
 // 头部导航
+
+zIndexTopBar=3
+zIndexNavItem=2
+zIndexNavOverlap=1
+
 nav
   text-align: center
   max-width: pc-width
@@ -9,6 +14,7 @@ nav
   line-height: 4
   .top-bar
     display: none
+    z-index: zIndexTopBar
   a,a.active, a.link, a.visited
     color: font-primary-color
     text-decoration: none
@@ -32,21 +38,25 @@ nav
       left: 0
       width: 100%
       max-width: 100%
-      height: 64px
+      height: 68px
       z-index: 999
       background-color: #fff
     .top-bar
       display: block
+      border-bottom: 1px solid grey-color
+      background-color: bg-color
     .items
-      display: none
-    .items.extended
+      transform: translate(-50vw)
+      transition: transform 200ms ease-in-out
       display: flex
       flex-direction: column
-      position: absolute
-      top: 64px
-      right: 4px
+      position: fixed
+      width: 50vw
+      height: calc(100vh - 64px)
+      top: 68px
+      left: 0
       background-color: #fff
-      box-shadow: 0 1px 3px #95a5a6
+      z-index: zIndexNavItem
       a,a.active, a.link, a.visited
         padding: 0 8px
         &:hover, &:focus
@@ -54,6 +64,17 @@ nav
         &.active
           font-weight: lighter
           color: unset
+
+    .overlap 
+      top: 0
+      left: 0
+      width: 100vw
+      height: calc(100vh - 64px)
+      top: 64px
+      background-color: bg-color
+      z-index: zIndexNavOverlap
+
+      display: none
       
     .mobile-menu
       display: block
@@ -64,7 +85,7 @@ nav
         height: 32px
         border: 0
         outline: 0
-        background-color: #fff
+        background-color: transparent
         background-repeat: no-repeat
         background-position: center
         background-size: 32px 32px
@@ -72,20 +93,11 @@ nav
 
         position: fixed
         top: 16px
-        right: 27px
+        left: 24px
 
       input:checked ~ .items
-        display: flex
-        flex-direction: column
-        position: fixed
-        top: 64px
-        right: 4px
-        background-color: #fff
-        box-shadow: 0 1px 3px #95a5a6
-        a,a.active, a.link, a.visited
-          padding: 0 8px
-          &:hover, &:focus
-            font-weight: lighter
-          &.active
-            font-weight: lighter
-            color: unset
+        transform: translate(0)
+      input:checked ~ .overlap
+        display: block
+        opacity: 0.8
+        

@@ -13,7 +13,7 @@
      a[c.year].posts.push(c)
      return a
    }, {})
-   return Object.values(obj)
+   return Object.values(obj).sort((a, b) => b.year - a.year)
  }
 -
 ol.archive-years

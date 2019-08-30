@@ -1,5 +1,11 @@
 
 footer
-  section.copyright © 2019 !{config.author}
+  
   section.links 
-    a(href='include includes/nav.pug') Hexo
+    a(href=config.feed.path) 
+      span.icon(name='rss')
+    a(href=config.homes.github) 
+      span.icon(name='github')
+    a(href='https://hexo.io') Hexo
+    
+  section.copyright © 2019 !{config.author}
